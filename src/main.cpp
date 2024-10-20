@@ -1,36 +1,38 @@
 #include <iostream>
-#include "Expense.inc"
+#include "../inc/Expense.h"
+using namespace std;
+
 int main() {
-    std::vector<Expense> expenses;
-    std::string action;
+    vector<Expense> expenses;
+    string action;
 
     while (true) {
-        std::cout << "Pick an action (add, total, category, quit):  ";
-        std::cin >> action;
+        cout << "Pick an action (add, total, category, quit):  ";
+        cin >> action;
 
         if(action =="add") {
             float amount;
-            std::string category, date;
-            std::cout << "Enter amount: ";
-            std::cin >> amount;
-            std::cout << "Enter category: ";
-            std::cin >> category;
-            std::cout << "Enter date( MM-DD-YYYY): ";
-            std::in >> date;
+            string category, date;
+            cout << "Enter amount: ";
+            cin >> amount;
+            cout << "Enter category: ";
+            cin >> category;
+            cout << "Enter date( MM-DD-YYYY): ";
+            cin >> date;
 
             Expense newExpense(amount, category, date);
             addExpense(expenses, newExpense);
         } else if (action ==  "total") {
-            std::cout << "Total expenses: $" << calculateTotal(expenses) << std::endl;
+            cout << "Total expenses: $" << calculateTotal(expenses) << endl;
         } else if (action == "category") {
-            std::string category;
-            std::cout << "Enter categoryto filter: ";
-            std::cin >> category;
-            displayExpensesByCategory(expenss, category);
+            string category;
+            cout << "Enter category to filter: ";
+            cin >> category;
+            displayExpensesByCategory(expenses, category);
         } else if (action == "quit") {
             break;
-        } else if {
-            std::cout << "Not Vaild, pick again." << std::endl;
+        } else {
+            cout << "Not Vaild, pick again." << endl;
         }
     }
     return 0;
