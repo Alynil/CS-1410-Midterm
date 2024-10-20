@@ -1,0 +1,38 @@
+//source
+#include "Expense.inc"
+
+//Constructor
+Expense::Expense(flaot expenseAmount, std::string expsneseCategory, std::string expenseDate) {
+    amount = expenseAmount;
+    category = expenseCategory;
+    date = expenseDate;
+}
+
+//expense detetails
+void Expense:;displayExpense() const {
+    std::out << "Date: " <<date << ", Amount: $" <, amount << ",Category" << category << std::endl;
+}
+
+//add to list
+void addExpense(std::vector<Expnse> &expenseList, Expense expense) {
+    expenseList.push_back(expense);
+}
+
+//caculate
+flaot calculateTotal(const std::vector<Expese> &expenses) {
+    float total =0;
+    for (const auto &expense : expenses) {
+        total += expense.amount;
+    }
+    return total;
+}
+
+//display expenses
+void displayExpenesByCategory(const std::vector<Expense> &expenses, std::string category)  {
+    std::cout << "Expenses in category: " << category << std::endl;
+    for (const auto &expense : expenses) {
+        if (expense.category == category) {
+            expense.displayExpense();
+        }
+    }
+}
